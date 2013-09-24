@@ -478,7 +478,7 @@ template<typename dPoint2d,typename dTriFace>
 void FaceAdjMesh<dPoint2d,dTriFace>::InsertPointByIdx(int idx)
 {
 	//assert(mVerts[idx]);
-	assert(mVerts.size()>idx&&idx>0);
+	assert((int)mVerts.size()>idx&&idx>0);
 	const int infidx = LocatePoint(mVerts[idx]->x, mVerts[idx]->y);
 	if ( infidx==-1 ) return ;
 	Splite(infidx,idx);

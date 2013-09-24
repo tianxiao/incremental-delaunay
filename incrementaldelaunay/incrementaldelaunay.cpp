@@ -123,7 +123,11 @@ int _tmain(int argc, _TCHAR* argv[])
 	//FaceAdjacentDelaunayTest();
 	//FaceAdjacentDelaunayTest2();
 	//FaceAdjacentDelaunayBBoxAPITest();
-	FaceAdjDelaunayIdxInsert();
+	//FaceAdjDelaunayIdxInsert();
+
+	//TestZonePartitionDelaunayWithoutThread();
+	TestZonePartitionDelaunay();
+	
 	//testInCirclePredicate();
 
 	//TestHugeMalloc(316081674);
