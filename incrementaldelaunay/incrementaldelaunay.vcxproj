@@ -134,8 +134,10 @@
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ApiTest.h" />
     <ClInclude Include="exactpredicator.h" />
     <ClInclude Include="FaceAdjMesh.h" />
+    <ClInclude Include="PZoneManager.h" />
     <ClInclude Include="quadedge.h" />
     <ClInclude Include="RTree.h" />
     <ClInclude Include="stdafx.h" />
@@ -144,9 +146,11 @@
     <ClInclude Include="testQuadEdgeTopo.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ApiTest.cpp" />
     <ClCompile Include="FaceAdjMesh.cpp" />
     <ClCompile Include="incrementaldelaunay.cpp" />
     <ClCompile Include="predicates.cxx" />
+    <ClCompile Include="PZoneManager.cpp" />
     <ClCompile Include="quadedge.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

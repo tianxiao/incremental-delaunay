@@ -42,6 +42,12 @@
     <ClInclude Include="RTree.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="PZoneManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -63,6 +69,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="predicates.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PZoneManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ApiTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

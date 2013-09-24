@@ -14,10 +14,8 @@
 #include "FaceAdjMesh.h"
 #include "exactpredicator.h"
 
-double getRandom0_1()
-{
-	return rand()/(RAND_MAX*1.0);
-};
+#include "ApiTest.h"
+
 
 void sampleSubdivision()
 {
@@ -69,89 +67,7 @@ void testInCirclePredicate()
 	double p641_1996_1069_incircle = incircle(p641_1996_1069_v0,p641_1996_1069_v1,p641_1996_1069_v2,p641_1996_2333_v);
 }
 
-void FaceAdjacentDelaunayTest()
-{
-	FaceAdjMesh fmesh;
-	double p0[2] = {-8,0};
-	double p1[2] = {8,0};
-	double p2[2] = {0,8};
-	fmesh.Initialize(p0,p1,p2);
-	fmesh.InsertPoint(2,2);
-	fmesh.InsertPoint(-2,2);
-	fmesh.InsertPoint(-2,1.5);
-	fmesh.InsertPoint(1,1.1);
-	fmesh.InsertPoint(2,2.3);
-	fmesh.InsertPoint(3,2.3);
-	fmesh.InsertPoint(5,2.3);
-	fmesh.InsertPoint(0.1,4.2);
-	fmesh.InsertPoint(0.3,5.1);
 
-	// 3+9
-
-	//srand(time(NULL));
-	srand(NULL);
-	for ( int i=0; i<300; ++i ) {
-		fmesh.InsertPoint( rand()/(RAND_MAX*1.0)*3.90+0.5, rand()/(RAND_MAX*1.0)*3.90+0.5 );
-	}
-
-	//srand(NULL);
-	//for ( int i=0; i<1000000; ++i ) {
-	//	fmesh.InsertPoint( -(rand()/(RAND_MAX*1.0)*3.90+0.5), rand()/(RAND_MAX*1.0)*3.90+0.5 );
-	//}
-
-	fmesh.DumpMesh("dmeshl.off");
-	fmesh.DumpMeshFem("dmeshl.fem");
-}
-
-void FaceAdjacentDelaunayTest2()
-{
-	FaceAdjMesh fmesh;
-	double p0[2] = {-8,0};
-	double p1[2] = {8,0};
-	double p2[2] = {0,8};
-	fmesh.Initialize(p0,p1,p2);
-	fmesh.InsertPoint(2,2);
-	fmesh.InsertPoint(-2,2);
-	fmesh.InsertPoint(-2,1.5);
-	fmesh.InsertPoint(1,1.1);
-	fmesh.InsertPoint(2,2.3);
-	fmesh.InsertPoint(3,2.3);
-	fmesh.InsertPoint(5,2.3);
-	fmesh.InsertPoint(0.1,4.2);
-	fmesh.InsertPoint(0.3,5.1);
-
-	//srand(time(NULL));
-	//srand(NULL);
-	//for ( int i=0; i<1000000; ++i ) {
-	//	fmesh.InsertPoint( rand()/(RAND_MAX*1.0)*3.90+0.5, rand()/(RAND_MAX*1.0)*3.90+0.5 );
-	//}
-
-	srand(NULL);
-	for ( int i=0; i<816; ++i ) {
-		fmesh.InsertPoint( -(rand()/(RAND_MAX*1.0)*3.90+0.5), rand()/(RAND_MAX*1.0)*3.90+0.5 );
-	}
-
-	fmesh.DumpMesh("dmeshr.off");
-}
-
-void FaceAdjacentDelaunayBBoxAPITest()
-{
-	double minPnt[2] = {2.0,2.0};
-	double maxPnt[2] = {5.0,10.0};
-	FaceAdjMesh fmesh;
-	fmesh.InitializeBBox(minPnt,maxPnt);
-	srand(NULL);
-	const int numpnts = 163*20000;
-	for ( int i=0; i<numpnts; ++i ) {
-		fmesh.InsertPoint(
-			getRandom0_1()*(maxPnt[0]-minPnt[0])+minPnt[0],
-			getRandom0_1()*(maxPnt[1]-minPnt[1])+minPnt[1]);
-		if ( i%20000==0 ) 
-			printf("%d * 20,000 Generated\n", i/20000 );
-	}
-
-	fmesh.DumpMeshFem("dmeshbbox.fem");
-}
 
 void smapletestQuadEdgeTopo()
 {
@@ -206,7 +122,8 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	//FaceAdjacentDelaunayTest();
 	//FaceAdjacentDelaunayTest2();
-	FaceAdjacentDelaunayBBoxAPITest();
+	//FaceAdjacentDelaunayBBoxAPITest();
+	FaceAdjDelaunayIdxInsert();
 	//testInCirclePredicate();
 
 	//TestHugeMalloc(316081674);
